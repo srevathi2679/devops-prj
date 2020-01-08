@@ -9,4 +9,7 @@ public class Demo {
 
         System.out.println("I am not covered");
     }
+    public void DoNothing(){
+        System.out.println("I am not covered");
+    }
 }
