@@ -23,4 +23,4 @@ steps:
     checkStyleRunAnalysis: true # Optional
     pmdRunAnalysis: true # Optional
     findBugsRunAnalysis: true # Optional
-	  codeCoverageToolOption: JaCoCo
+    codeCoverageToolOption: JaCoCo
