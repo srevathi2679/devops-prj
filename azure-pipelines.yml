@@ -10,16 +10,17 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Ant@1
+- task: Maven@3
   inputs:
-    buildFile: 'build.xml'
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    codeCoverageToolOptions: JaCoCo
-- script: |
-    echo Starting the build
-    mvn package
-  displayName: 'Build with Maven'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
+    checkStyleRunAnalysis: true # Optional
+    pmdRunAnalysis: true # Optional
+    findBugsRunAnalysis: true # Optional
+	  codeCoverageToolOption: JaCoCo
